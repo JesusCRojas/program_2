@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa para cargar y descargar archivos :)</title>
+</head>
+   
+<body>
+       
+    <br>
+   
+    <h1>Programa para cargar y descargar archivos :)</h1>
+   
+    <br>
+   
+    <form action="/cargar_archivo_jesus" method="post" enctype="multipart/form-data">
+   
+        <!-- Seleccionar archivo -->
+        <input type="file" name="name_input_seleccionar_archivo"><br>
+   
+        <br><br>
+   
+        <!-- Cargar archivo -->
+        <input type="submit" value="Cargar archivo">
+   
+    </form>
+       
+    <br>
+   
+    <h1>LISTA DE ARCHIVOS CARGADOS</h1>
+   
+    <% if(dato_jesus_2.length > 0) {%>
+        <table>
+   
+            <thead>
+                <tr>
+                    <td>
+                        Archivos
+                    </td>
+                    <td>
+                        Opción
+                    </td>
+                </tr>
+            </thead>
+              
+            <tbody>
+                <% for(var i=0; i< dato_jesus_2.length; i++) {%>
+                    <tr>
+                        <td>
+                            <img src="<%= dato_jesus_2[i].path_archivo%>">
+                        </td>
+                      
+                        <td>
+                            <form action="/descargar_archivo_jesus/<%= dato_jesus_2[i]._id%>">
+                              
+                                <!-- Descargar archivo -->
+                                <input type="submit" value="Descargar archivo">
+                              
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+   
+        </table>
+    <% } %>  
+
+</body>
+
+</html>
